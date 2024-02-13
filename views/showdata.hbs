@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<script>
+  function myFunction() {
+  alert("Deleted successfully");
+}
+function update(){
+  alert("Updated successfully");  
+}
+</script>
+<body>
+    
+
+<table align="center" border="1px" id="customers">
+  <tr>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Blood-group</th>
+    <th>Mobile no.</th>  
+    <th></th>
+    <th></th>
+  </tr>
+  {{#each data}}
+  <tr>
+        <form action="updatereq" method="post">
+    <td>
+        <input type="hidden" name="id" value="{{this.id}}" />
+        <input type="text" name="name" value="{{this.name}}" /></td>
+    <td><input type="name" name="gen" value="{{this.gen}}" /></td>
+    <td><input type="text" name="mob" value="{{this.mob}}" /></td>
+    <td><input type="text" name="bgroup" value="{{this.bgroup}}" /></td>
+    <td><input type="submit" value="Update" onclick="update()" /></td> 
+    </form>
+      <form action="showdata/{{this.name}}" method="post">
+        <td><button type="submit" onclick="myFunction()">Delete</button></td>
+      </form>
+  </tr>
+{{/each}}
+</table>
+</body>
+</html>

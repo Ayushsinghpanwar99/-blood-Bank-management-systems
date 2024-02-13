@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      overflow: scroll;
+    }
+
+    #data1 {
+      width: 100%;
+      height: 60%;
+    }
+
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12);
+      transition: 0.3s;
+      width: 16%;
+      margin-left: 40px;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.9);
+    }
+
+    .far fa-hospital {
+      height: 30px;
+    }
+
+    .color {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .nav-tab {
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    .button {
+      background-color: #4CAF50;
+      /* Green */
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+
+    .button1 {
+      background-color: #dc3545;
+      color: black;
+      font-size: 1.25rem;
+      border-color: #dc3545;
+    }
+
+    .button1:hover {
+      background-color: #48b7e0;
+      color: white;
+    }
+
+    #img {
+      height: 20px;
+      width: 20px;
+    }
+
+    .dot {
+      height: 50px;
+      width: 50px;
+      background-color: red;
+      border-radius: 50%;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div>
+      <nav class="navbar navbar-expand-sm bg-white navbar-black" style="margin-left: 16px;
+      margin-right: 16px;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img
+              src="https://img.freepik.com/free-vector/blood-donation-logo-branding-identity-corporate-vector-design_460848-13918.jpg?w=996&t=st=1688739657~exp=1688740257~hmac=6e3a6a4746a2e047f7de38c7573139e2f1e9216c59066e4ea2b14064091a9ceb"
+              alt="" width="220px" height="120px" style="margin-top: -50px;">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar ">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="" style="font-size: 20px;">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="addreq" style="font-size: 20px; margin-left: 10px; ">Donor</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="admin" style="font-size: 20px; margin-left: 10px">Admin</a>
+              </li>
+              {{!-- <li class="nav-item"
+                style="margin-left: 1000px; background-color: red; border:0px; border-radius:5px; height:30px; width:80px; color: white; margin-top: 8px; ">
+                <a class="nav-link" href="login">Login</a>
+              </li> --}}
+              <li><a href="login">
+                  <button
+                    style="margin-left: 800px; margin-top: 10px; background-color: red; border:0px; border-radius:5px; height:30px; width:80px; color: white;">Login</button>
+                </a></li>
+
+              <li><a href="signup">
+                  <button
+                    style="margin-left: 20px; margin-top: 10px; background-color: red; border:0px; border-radius:5px; height:30px; width:80px; color: white;">Signup</button>
+                </a></li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+
+      <div class="container " id="data1"></div>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="https://www.eraktkosh.in/BLDAHIMS/bloodbank/transactions/assets/ONE_NATION_2500_600.png"
+              alt="Los Angeles" style="width:100%;">
+          </div>
+
+          <div class="item">
+            <img src="https://www.eraktkosh.in/BLDAHIMS/bloodbank/transactions/assets/ONE_NATION_2500_600.png"
+              alt="Chicago" style="width:100%;">
+          </div>
+
+          <div class="item">
+            <img src="https://www.eraktkosh.in/BLDAHIMS/bloodbank/transactions/assets/updated_NewYear2022.png"
+              alt="New york" style="width:100%;">
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+    {{!-- Card --}}
+    <div class="color"
+      style="background-image: url(https://www.eraktkosh.in/BLDAHIMS/bloodbank/transactions/statsAssets/images/counter-bg.png)">
+      <div style="margin-left: 300px; margin-top: 20px; float: left;">
+        <div class="card" style="width: 350px; height: 150px; background-color: #107ecb; border-radius: 25px;">
+          <div class="card-body" style="padding-left: 70px;">
+            <h2 class="card-title" style="padding-top: 20px; padding-left: 40px; color: white;">1916928</h2>
+            <p class="card-subtitle mb-2" style="font-weight: bold; font-size: 20px; color: white;">Donors Registered ⓘ
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-left: 300px; margin-top: 20px; margin-left: 40px;border-radius: 8px; float: left; ">
+        <div class="card" style="width: 350px; background-color: #4738c0; height: 150px; border-radius: 25px;">
+          <div class="card-body" style="padding-left: 70px;">
+            <h2 class="card-title" style="padding-top: 20px; padding-left: 40px;color: white;">1776658</h2>
+            <h3 class="card-subtitle mb-2" style="font-weight: bold; font-size: 20px;color: white;">Blood Units
+              Collected
+              ⓘ</h3>
+          </div>
+        </div>
+      </div>
+      <h5 style="padding-top: 200px; text-align: center;">Data from 01 Jan 2022 onwards : Last update: 2023-07-11
+        10:13:00
+      </h5>
+    </div>
+
+    {{!-- Short Card --}}
+    <div class="p-3 mb-2 text-white" style="background-color: #D1D1D1; height: 230px;">
+      <div style="margin-left: 30px; margin-top: 20px; float: left;">
+        <div class="card" style="width: 220px; height: 170px;background-color: #941313; border-radius: 25px;">
+          <div class="card-body" style="padding-left: 70px;">
+            <i class="fas fa-hand-holding-water" style="color: #ffffff; font-size:40px"></i>
+            {{!-- <box-icon class="bg-white" type='solid' name='donate-blood' style="font-size:40px"></box-icon> --}}
+            <p class="card-subtitle mb-2 text-white" style="font-weight: bold; font-size: 20px; padding-top: 20px;">
+              Blood
+              Availability Search
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-left: 20px; margin-top: 20px;border-radius: 8px; float: left;">
+        <div class="card" style="width: 220px; height: 170px;background-color: #007bff; border-radius: 25px;">
+          <div class="card-body" style="padding-left: 70px;">
+            <i class="far fa-hospital" style="color: #ffffff; font-size:40px"></i>
+            <h3 class="card-subtitle mb-2"
+              style="font-weight: bold; font-size: 20px; padding-top: 10px; padding-top: 20px;">Blood <br>Bank Directory
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-left: 20px; margin-top: 20px;border-radius: 8px; float: left; ">
+        <div class="card" style="width: 220px; height: 170px; background-color: #ffc107; border-radius: 25px;">
+          <div class="card-body" style="padding-left: 70px;">
+
+            <i class="fa-solid fa-clock" style="font-size:40px; color: #ffffff"></i>
+            <h3 class="card-subtitle mb-2"
+              style="font-weight: bold; font-size: 20px; padding-top: 10px; padding-top: 20px; color: white">Blood
+              <br>Bank<br>Camps
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-left: 20px; margin-top: 20px;border-radius: 8px; float: left; ">
+        <div class="card" style="width: 220px; height: 170px;background-color: #fd7e14; border-radius: 25px;">
+          <div class="card-body" style="padding-left: 70px;">
+
+            <i class='far fa-user-circle' style="font-size:40px; color: #ffffff"></i>
+            <h3 class="card-subtitle mb-2"
+              style="font-weight: bold; font-size: 20px; padding-top: 10px; padding-top: 20px; color: white">Donor
+              <br>Login
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-left: 20px; margin-top: 20px;border-radius: 8px; float: left; ">
+        <div class="card" style="width: 220px; height: 170px;background-color: #28a745; border-radius: 25px;">
+          <div class="card-body" style="padding-left: 70px;">
+
+            <i class='far fa-user-circle' style="font-size:40px; color: #ffffff"></i>
+            <h3 class="card-subtitle mb-2"
+              style="font-weight: bold; font-size: 20px; padding-top: 10px; padding-top: 20px; color: white">Register
+              Voluntary Blood Camp</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding-top: 20px; text-align: center;">
+      <h3 class="text-warning">
+        <p class="fst-italic">Help people get Blessings</p>
+      </h3>
+      <h1>
+        <p class="fw-bolder">Donation Available</p>
+      </h1><br><br>
+    </div>
+
+    <div class="row">
+      <div class="col-4" style="padding-left: 60px;">
+        <div class="card" style="width: 250px;">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXb7sxBtVAuW4ZaU1H3mRL-qaP_tSsWImbvkyA3IC7w_OkxdgJJbd54kUOI9K_6MOL3qU&usqp=CAU"
+            class="card-img-top" alt="..." height="200px">
+          <div class="card-body">
+            <h5 class="card-title"><b>Blood Donation</b></h5><br>
+            <p class="card-text">Takes only 10-15 minutes and can be given again after 56 Days.</p>
+            <a href="#" class="btn btn-info">Find Blood Donor</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-4" style="padding-left: 60px;">
+        <div class="card" style="width: 250px;">
+          <img
+            src="https://media.cnn.com/api/v1/images/stellar/prod/230112141124-01-convalescent-plasma.jpg?c=16x9&q=w_800,c_fill"
+            class="card-img-top" alt="..." height="200px">
+          <div class="card-body">
+            <h5 class="card-title"><b>Plasma Donation</b></h5><br>
+            <p class="card-text">Takes only 45 minutes and can be given again after 7 Days.</p>
+            <a href="#" class="btn btn-info">Find Plasma Donor</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4" style="padding-left: 60px;">
+        <div class="card" style="width: 250px;">
+          <img
+            src="https://media.wired.com/photos/5f3c091a38542e127f6103ab/master/w_2560%2Cc_limit/Science_plasma_1266354312.jpg"
+            class="card-img-top" alt="..." height="200px">
+          <div class="card-body">
+            <h5 class="card-title"><b>Platelets Donation</b></h5><br>
+            <p class="card-text">Takes only 45 minutes and can be given again after 7 Days.</p>
+            <a href="#" class="btn btn-info">Find Platelets Donor</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br>
+    <br>
+
+    <div style="background-color: #f2f5f6; width: 100%; height: 550px;">
+      <h1 style="color: red; padding: 0;border: none;outline: 0; text-align: center; padding-top: 10px;">TYPES OF
+        DONATION</h1>
+      <div>
+        <p style="text-align: center; margin-bottom: 1rem;margin-top: 0;position: relative;
+    clear: both;">The human body contains five liters of blood, which is made of several useful components i.e.
+          <strong> Whole blood</strong>, <strong> Platelet</strong>, and <strong>Plasma.</strong>
+        </p>
+        <p style="text-align: center;">Each type of component has several medical uses and can be used for different
+          medical treatments. your blood donation determines the best donation for you to make.</p>
+        <p style="text-align: center;">For <strong> plasma</strong> and <strong> platelet </strong> donation you must
+          have
+          donated whole blood in past two years.</p>
+      </div>
+      <br>
+      <br>
+      <ul class="nav nav-tab" style="padding-left: 25px;">
+        <li style="background-color: #fff;">
+          <a style="color: #555;">Whole Blood</a>
+        </li>
+        <li>
+          <a href="">Platelet</a>
+        </li>
+        <li>
+          <a href="">Platelet</a>
+        </li>
+      </ul>
+
+      <div>
+        <div style="float: left; border: 1px solid gray; width: 33.33%; height: 230px;">
+          <h1 class="fw-bold" style="font-size: 20px; padding-left: 180px;">What is it?</h1>
+          <p style="padding-left: 40px; padding-top: 7px;">Blood Collected straight from the donor after its donation
+            usually</p>
+          <p style="padding-left: 66px;">separated into red blood cells, platelets, and plasma.</p>
+          <h1 class="fw-bold" style="font-size: 20px; padding-left: 150px;">Who can donate?</h1>
+          <p style="padding-left: 40px; padding-top: 7px;">You need to be 18-65 years old, weigh 45kg or more and be fit
+            and</p>
+          <p style="padding-left: 210px;">healthy.</p>
+        </div>
+        <div style="float: left; border: 1px solid gray; width: 33.33%; height: 230px;">
+          <h1 class="fw-bold" style="font-size: 20px; padding-left: 180px;">User For?</h1>
+          <p style="padding-left: 40px; padding-top: 7px;">Stomach disease, kidney disease, childbirth, operations,
+            blood
+            loss,</p>
+          <p style="padding-left: 66px;">trauma, cancer, blood diseases, haemophilia, anemia, heart disease.</p>
+          <h1 class="fw-bold" style="font-size: 20px; padding-left: 180px;">Lasts For?</h1>
+          <p style="padding-left: 130px; padding-top: 7px;">Red cells can be stored for 42 days.</p>
+        </div>
+        <div style="float: left; border: 1px solid gray; width: 33.33%; height: 230px;">
+          <h1 class="fw-bold" style="font-size: 20px; padding-left: 180px;">How long does it take?</h1>
+          <p style="padding-left: 230px; padding-top: 7px;">15 minutes to donate.</p>
+          <h1 class="fw-bold" style="font-size: 20px; padding-left: 180px;">How often can I donate?</h1>
+          <p style="padding-left: 230px; padding-top: 7px;">Every 12 weeks</p>
+        </div>
+        <div>
+          <button class="btn-lg  button button1"
+            style="margin-left: 600px; margin-top: 30px; width: 280px; text-align: center; color: white;">Find Nearest
+            Blood Bank To
+            Donate</button>
+        </div>
+      </div>
+      <div>
+
+      </div>
+
+    </div>
+
+    <div class="twitter-icon text-center">
+      {{!-- <i class="fa fa-tint" aria-hidden="true"></i> --}}
+      <img
+        src="https://health.gov.tt/sites/default/files/styles/large/public/inline-images/Blood%20Bank%20logo%202022-03.png?itok=0H-a6QNb"
+        height="100px" width="100px" style="padding-top: 10px;" />
+      <h4 style="color: red; font-size: 15px; font-family: sans-serif;"><b>HOW DONATION WORKS</b></h4>
+    </div>
+
+    <div class="container"></div>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <center><span class="dot"><i class="fa-solid fa-clock" style="color: white; font-size: 19px"></i></span>
+            <h4>There is nothing better than saving a life  <a href="#" style="color: red;">Every blood donor is a hero, Read Blood Donation Facts</a></h4>
+          </center>
+        </div>
+
+        <div class="item">
+          <center><span class="dot"><i class="fa fa-inr" aria-hidden="true"
+                style="color: white;font-size: 19px"></i></span>
+            <h4>It Costs Nothing <a href="#" style="color: red;">Give blood and stay healthy, Read Blood Donation Facts</a></h4>
+          </center>
+        </div>
+
+        <div class="item">
+          <center><span class="dot"><i class="fa fa-beer" aria-hidden="true"
+                style="color: white;font-size: 19px"></i></span>
+            <h4>You will get free refreshments after donation<a href="#" style="color: red;"> Donation of blood is safe and healthy, Read Blood Donation
+              Facts</a></h4>
+          </center>
+        </div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="container my-5"></div>
+  <!-- Footer -->
+  <footer class="text-center text-lg-start text-dark" style="background-color: #ECEFF1; margin-left: 16px; margin-right: 16px; margin-top: -40px;">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-between p-4 text-white" style="background-color: #21D192">
+      <!-- Left -->
+      <div class="me-5" style="height: 50px; padding-top: 12px">
+        <span>Get connected with us on social networks:</span>
+      </div>
+
+      <!-- Left -->
+
+      <!-- Right -->
+      <div style="margin-top: 5px;">
+        <a href="https://www.facebook.com/" class="text-white me-4 fa-2x">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com/BloodDonation" class="text-white me-4 fa-2x">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.google.com/" class="text-white me-4 fa-2x">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="https://www.instagram.com/friendsbloodbank/" class="text-white me-4 fa-2x">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/feed/" class="text-white me-4 fa-2x">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/" class="text-white me-4 fa-2x">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold">COMPANY NAME</h6>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+            <p>75
+              Online database of willful blood donors.Save lives get
+              Blessings.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">EXPLORE</h6>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+            <p>
+              <a href="#!" class="text-dark">Donate</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Campaigns</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Fundraise</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Volunteers</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Sponsors</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+ 
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">FUNDRAISING</h6>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+            <p>
+              <a href="#!" class="text-dark">Contect</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Help</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Faqs</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">CONTACT</h6>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+            <p><i class="fas fa-home mr-3"></i> India, NY 10012, india</p>
+            <p><i class="fas fa-envelope mr-3"></i> help@examplegiveblood.in</p>
+            <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); height: 40px; padding-top: 10px">
+      Terms & Conditions | Privacy Policy | Accessibility Statement | Last Updated : Jul 15 2023 | Site Map
+    </div>
+
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+  </div>
+  </div>
+
+
+
+</body>
+
+</html>
